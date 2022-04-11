@@ -1,0 +1,38 @@
+PODS:
+  - Alamofire (5.4.3)
+  - CryptoSwift (1.4.2)
+  - Moya/Core (14.0.0):
+    - Alamofire (~> 5.0)
+  - Moya/RxSwift (14.0.0):
+    - Moya/Core
+    - RxSwift (~> 5.0)
+  - ObjectMapper (4.2.0)
+  - RxSwift (5.1.3)
+  - SwiftyJSON (5.0.1)
+
+DEPENDENCIES:
+  - CryptoSwift
+  - Moya/RxSwift
+  - ObjectMapper
+  - SwiftyJSON
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - CryptoSwift
+    - Moya
+    - ObjectMapper
+    - RxSwift
+    - SwiftyJSON
+
+SPEC CHECKSUMS:
+  Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
+  CryptoSwift: a532e74ed010f8c95f611d00b8bbae42e9fe7c17
+  Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
+  ObjectMapper: 1eb41f610210777375fa806bf161dc39fb832b81
+  RxSwift: 915abbdfb62214aa89ccd0b194d44fb478019b27
+  SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
+
+PODFILE CHECKSUM: 65d8dfc5e6a4a49f11f6f5de3681fcc0b8fb47b0
+
+COCOAPODS: 1.11.2
