@@ -19,7 +19,7 @@ import Moya
 struct ModuleAProvider {
     
     /// 在没有错误的情况下返回ModelA类型对象
-    static func fetechA() -> Observable<ModelA> {
+    static func fetchA() -> Observable<ModelA> {
         return requestProvider.rx.request(.get("xxx",
                                                 parameter: ["xx": "123"]))
             .asObservable()
@@ -28,7 +28,7 @@ struct ModuleAProvider {
     }
     
     /// 在没有错误的情况下返回ModelB泛型数组
-    static func fetechB() -> Observable<[ModelB]> {
+    static func fetchB() -> Observable<[ModelB]> {
         return requestProvider.rx.request(.post("xxx",
                                                 parameter: ["xxx": 1234]))
             .asObservable()
@@ -38,7 +38,7 @@ struct ModuleAProvider {
     
     
     /// 在没有错误的情况下返回原始Response数据
-    static func fetechC() -> Observable<Response> {
+    static func fetchC() -> Observable<Response> {
         return requestProvider.rx.request(.post("",
                                                 parameter: [:]))
             .asObservable()
@@ -46,7 +46,7 @@ struct ModuleAProvider {
     }
     
     /// 返回原始Response数据，不过滤数据
-    static func fetechD() -> Observable<Response> {
+    static func fetchD() -> Observable<Response> {
         return requestProvider.rx.request(.post("",
                                                 parameter: [:]))
             .asObservable()
@@ -70,14 +70,14 @@ private let dispose = DisposeBag()
 private func loadData() {
         
         /// 只考虑正常拿到数据的情况
-        ModuleAProvider.fetechA().subscribe { event in
+        ModuleAProvider.fetchA().subscribe { event in
             if let model = event.element {
                 // do something
             }
         }.disposed(by: dispose)
         
         /// 正常数据以及异常数据情况分开处理
-        ModuleAProvider.fetechB().subscribe { element in
+        ModuleAProvider.fetchB().subscribe { element in
             // do something
         } onError: { error in
             // error toast
@@ -85,7 +85,7 @@ private func loadData() {
         }.disposed(by: dispose)
         
         /// 不做模型解析，单独从response中读取某个字段，借助SwiftJson
-        ModuleAProvider.fetechC().subscribe { event in
+        ModuleAProvider.fetchC().subscribe { event in
             if let data = event.element?.model?.data,
                let url = JSON(data)["url"].string {
                 // do something
